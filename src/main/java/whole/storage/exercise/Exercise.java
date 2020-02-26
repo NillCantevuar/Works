@@ -4,48 +4,54 @@ import whole.storage.currentWorkoutStorage.WorkoutPice;
 
 public class Exercise implements WorkoutPice {
 
-   private String MuscleCategory;
-   private String MuscleSubCategory;
+   private String muscleCategory;
+   private String muscleSubCategory;
 
-   private String ExerciseName;
-   private String ExerciseSubName;
+   private String exerciseName;
+   private String exerciseSubName;
 
     public Exercise(String muscleCategory, String muscleSubCategory, String exerciseName, String exerciseSubName) {
-        MuscleCategory = muscleCategory;
-        MuscleSubCategory = muscleSubCategory;
-        ExerciseName = exerciseName;
-        ExerciseSubName = exerciseSubName;
+        this.muscleCategory = muscleCategory;
+        this.muscleSubCategory = muscleSubCategory;
+        this.exerciseName = exerciseName;
+        this.exerciseSubName = exerciseSubName;
     }
 
     public String getMuscleCategory() {
-        return MuscleCategory;
+        return muscleCategory;
     }
 
     public void setMuscleCategory(String muscleCategory) {
-        MuscleCategory = muscleCategory;
+        this.muscleCategory = muscleCategory;
     }
 
     public String getMuscleSubCategory() {
-        return MuscleSubCategory;
+        return muscleSubCategory;
     }
 
     public void setMuscleSubCategory(String muscleSubCategory) {
-        MuscleSubCategory = muscleSubCategory;
+        this.muscleSubCategory = muscleSubCategory;
     }
 
     public String getExerciseName() {
-        return ExerciseName;
+        return exerciseName;
     }
 
     public void setExerciseName(String exerciseName) {
-        ExerciseName = exerciseName;
+        this.exerciseName = exerciseName;
     }
 
     public String getExerciseSubName() {
-        return ExerciseSubName;
+        return exerciseSubName;
     }
 
     public void setExerciseSubName(String exerciseSubName) {
-        ExerciseSubName = exerciseSubName;
+        this.exerciseSubName = exerciseSubName;
+    }
+
+    @Override
+    public String toString() {
+        return exerciseName+" "+exerciseSubName +" "+ muscleCategory +" "+ muscleCategory;
+
     }
 }

@@ -13,7 +13,7 @@ public class EditCurrentWorkuoutMenu implements MenuInterface {
         CurrentWorkoutHandler currentWorkoutHandler = new CurrentWorkoutHandler();
         System.out.println("Select Option and write in console");
         System.out.println("");
-        currentWorkoutHandler.showCurrentSatate();
+        CurrentWorkoutHandler.showCurrentWorkout();
         System.out.println("1. Select and delete");
         System.out.println("2. Select and add after");
         System.out.println("3. Done editing");

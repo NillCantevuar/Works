@@ -1,37 +1,85 @@
 package whole.sorters;
 
 import whole.storage.exercise.Exercise;
+import whole.storage.exercise.ExerciseStorage;
+import whole.validators.InputValidators;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class SortByExerciseName {
 
-    public Exercise sort() {
+    public Exercise sortAndGive() {
         // jescze nic
         //wyswietl mozliwe opcje wyoru
-         showPosible();
+        List<Exercise> ex = ExerciseStorage.exercisesList;
+        List<String> names = showPosible(ex);
+        String choice = getInput(names);
         // przefiltuj calosc na podstawie
-        List<Exercise> filteredByName = filterList();
+        List<Exercise> filteredByName = filterList(choice);
         //wyswietl liste przefiltrofana
         showFiltered(filteredByName);
         //wybierz jedno z tych po numerze
         Exercise result= directChose(filteredByName);
         return result;
     }
+    public void sortAndShow() {
+        // jescze nic
+        //wyswietl mozliwe opcje wyoru
+        List<Exercise> ex = ExerciseStorage.exercisesList;
+        List<String> names = showPosible(ex);
+        String choice = getInput(names);
+        // przefiltuj calosc na podstawie
+        List<Exercise> filteredByName = filterList(choice);
+        //wyswietl liste przefiltrofana
+        showFiltered(filteredByName);
+    }
 
     private Exercise directChose(List<Exercise> filteredByName) {
-        return null;
+        InputValidators inputValidators = new InputValidators();
+        int choice =  inputValidators.inputLimiter(filteredByName.size(),null);
+        Exercise exercise = filteredByName.get(choice-1);
+        return exercise;
     }
 
     private void showFiltered(List<Exercise> filteredByName) {
+        int counter = 1;
+        for (Exercise e:filteredByName
+             ) {
+            System.out.println(counter+". "+e);
+        }
     }
 
-    private List<Exercise> filterList() {
-
-        return null;
+    private List<Exercise> filterList(String name) {
+        List<Exercise> filtered = ExerciseStorage.exercisesList.stream()
+                .filter(exercise -> exercise
+                        .getExerciseName()
+                        .equals(name))
+                .collect(Collectors.toList());
+        return filtered;
     }
 
-    private void showPosible() {
+    private List<String> showPosible(List<Exercise> exercises) {
+       Set<String> names = exercises.stream()
+               .map(Exercise::getExerciseName)
+               .collect(Collectors.toSet());
+       List <String> namesInList =names.stream().collect(Collectors.toList());
+        int counter = 1;
+        for (String s:names
+             ) {
+            System.out.println(counter+". "+s);
+            counter++;
+        }
+       return namesInList;
+    }
+    private String getInput(List<String> names){
+        InputValidators inputValidators = new InputValidators();
+        int choice =  inputValidators.inputLimiter(names.size(),null);
+        String name = names.get(choice-1);
+        return name;
+
     }
 
 

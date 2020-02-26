@@ -28,14 +28,15 @@ public class ExerciseEditorMenu  implements MenuInterface {
                 break;
             }
             case 2:{
-
-                exerciseSotrageHandler.addExercise();
+                //
+                Exercise exercise = exerciseSotrageHandler.createExercise();
+                exerciseSotrageHandler.addExercise(exercise);
                 show();
                 break;
             }
             case 3:{
                 Exercise sorted = sortMenu.showAndGive();
-                exerciseSotrageHandler.removeExercise();
+                exerciseSotrageHandler.removeExercise(sorted);
                 show();
 
                 break;

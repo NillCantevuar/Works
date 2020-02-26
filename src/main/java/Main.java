@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
         InputValidators inputValidators = new InputValidators();
 
-        MainMenu mainMenu = new MainMenu();
-        mainMenu.show();
+        Starter starter = new Starter();
+        starter.start();
 
     }
 }

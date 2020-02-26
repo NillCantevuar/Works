@@ -21,12 +21,12 @@ public class SortMenu  implements MenuInterface {
         switch (inputValidators.inputLimiter(2,this)){
             case 1:{
                 SortByExerciseName sortByExerciseName = new SortByExerciseName();
-                sortByExerciseName.sort();
+                sortByExerciseName.sortAndShow();
                 break;
             }
             case 2:{
                 SortByMusculePart sortByMusculePart = new SortByMusculePart();
-                sortByMusculePart.sort();
+                sortByMusculePart.sortAndShow();
                 break;
             }
 
@@ -44,12 +44,12 @@ public class SortMenu  implements MenuInterface {
         switch (inputValidators.inputLimiter(2,this)){
             case 1:{
                 SortByExerciseName sortByExerciseName = new SortByExerciseName();
-                return  sortByExerciseName.sort();
+                return  sortByExerciseName.sortAndGive();
 
             }
             case 2:{
                 SortByMusculePart sortByMusculePart = new SortByMusculePart();
-                return sortByMusculePart.sort();
+                return sortByMusculePart.sortAndGive();
             }
 
         }

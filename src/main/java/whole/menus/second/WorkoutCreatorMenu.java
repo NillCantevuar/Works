@@ -15,7 +15,8 @@ public class WorkoutCreatorMenu  implements MenuInterface {
     public void show() {
         MenuInterface menuInterface = new MainMenu();
         InputValidators inputValidators = new InputValidators();
-        System.out.println("Welcome in Workout Creator:");
+        System.out.println("Your courrent Workout: ");
+        CurrentWorkoutHandler.showCurrentWorkout();
         System.out.println("Select Option and write in console");
         System.out.println();
         System.out.println("1. Add exercise to current workout"); // show All
