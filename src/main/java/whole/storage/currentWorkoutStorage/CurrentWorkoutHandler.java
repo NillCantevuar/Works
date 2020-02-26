@@ -1,12 +1,13 @@
 package whole.storage.currentWorkoutStorage;
 
+import whole.menus.third.SortMenu;
 import whole.storage.exercise.Exercise;
 import whole.validators.InputValidators;
 
 import java.util.Scanner;
 
 public class CurrentWorkoutHandler {
-
+    SortMenu sortMenu = new SortMenu();
     public static void showCurrentWorkout() {
         for (WorkoutPice w:CurrentWorkoutStorrage.currentWorkout
              ) {
@@ -47,7 +48,8 @@ public class CurrentWorkoutHandler {
         show();
         InputValidators inputValidators = new InputValidators();
         int witch = inputValidators.inputLimiter(CurrentWorkoutStorrage.currentWorkout.size(),null);
-        CurrentWorkoutStorrage.currentWorkout.add(witch-1);
+        Exercise exercise = sortMenu.showAndGive();
+        CurrentWorkoutStorrage.currentWorkout.add(witch-1,exercise);
 
         //co dodac
         //wyswietl liste dostepnych cwiczen
@@ -61,8 +63,10 @@ public class CurrentWorkoutHandler {
         show();
         InputValidators inputValidators = new InputValidators();
         int witch = inputValidators.inputLimiter(CurrentWorkoutStorrage.currentWorkout.size(),null);
-
-        CurrentWorkoutStorrage.currentWorkout.add(witch-1, null);
+        System.out.println("Add amount of seconds");
+        Scanner scanner = new Scanner(System.in);
+        Break tempBreak = new Break(scanner.nextInt());
+        CurrentWorkoutStorrage.currentWorkout.add(witch-1, tempBreak);
 
         //co dodac
         //wyswietl liste dostepnych cwiczen
