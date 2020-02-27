@@ -4,7 +4,7 @@ Reakcja na wcisniecie
 
 Test na wprowadzanie ze skanera
 
-Zmienic sciezke docelowa zapisu treningu
+Zmienic sciezke docelowa zapisu treningu <-
 
 glowna jest nullem
 
@@ -15,8 +15,3 @@ Co bedzie statyczne
 baza danych jako logi gotowwych trenicgow
 
 
-
-menu ma statycvzna zmienna MenuType
-
-
-sort menu rozbic na 2 klasy

@@ -6,6 +6,7 @@ import whole.storage.currentWorkoutStorage.WorkoutPice;
 import whole.storage.exercise.ExerciseStorage;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
