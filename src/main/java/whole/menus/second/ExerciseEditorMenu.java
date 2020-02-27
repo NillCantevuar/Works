@@ -1,9 +1,10 @@
 package whole.menus.second;
 
 import whole.fileOperators.Saver;
+import whole.menus.MainMenu;
 import whole.menus.MenuInterface;
 import whole.menus.third.SortMenu;
-import whole.menus.first.MainMenu;
+import whole.menus.first.FirstMenu;
 import whole.storage.exercise.Exercise;
 import whole.storage.exercise.ExerciseSotrageHandler;
 import whole.validators.EmptyListCheck;
@@ -15,7 +16,7 @@ public class ExerciseEditorMenu  implements MenuInterface {
     Saver saver = new Saver();
     EmptyListCheck emptyListCheck = new EmptyListCheck();
     private InputValidators inputValidators = new InputValidators();
-    private MenuInterface menuInterface = new MainMenu();
+    private MenuInterface menuInterface = new FirstMenu();
     ExerciseSotrageHandler exerciseSotrageHandler = new ExerciseSotrageHandler();
     SortMenu sortMenu = new SortMenu();
     @Override
@@ -34,10 +35,10 @@ public class ExerciseEditorMenu  implements MenuInterface {
                     System.out.println("==================================");
                     System.out.println("List of exercises is empty!");
                     System.out.println("==================================");
-                    show();
+                    MainMenu.setMenuInterface(this);
                 }else {
                     sortMenu.show();
-                    show();
+                    MainMenu.setMenuInterface(this);
                 }
                 break;
             }
@@ -49,13 +50,13 @@ public class ExerciseEditorMenu  implements MenuInterface {
                 System.out.println("Exercise added!");
                 System.out.println("==================================");
                 saver.save("exerciseList.txt");
-                show();
+                MainMenu.setMenuInterface(this);
                 break;
             }
             case 3:{
                 if (emptyListCheck.isEmpty()){
                     System.out.println("List of exercises is empty!");
-                    show();
+                    MainMenu.setMenuInterface(this);
                 }else {
                     Exercise sorted = sortMenu.showAndGive();
                     exerciseSotrageHandler.removeExercise(sorted);
@@ -63,12 +64,12 @@ public class ExerciseEditorMenu  implements MenuInterface {
                     System.out.println("==================================");
                     System.out.println("Exercise deleted!");
                     System.out.println("==================================");
-                    show();
+                    MainMenu.setMenuInterface(this);
                 }
                 break;
             }
             case 4:{
-                menuInterface.show();
+                MainMenu.setMenuInterface(new FirstMenu());
                 break;
             }
         }

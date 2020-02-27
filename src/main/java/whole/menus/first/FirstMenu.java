@@ -1,6 +1,7 @@
 package whole.menus.first;
 
 import whole.fileOperators.Saver;
+import whole.menus.MainMenu;
 import whole.menus.second.ExerciseEditorMenu;
 import whole.menus.MenuInterface;
 import whole.menus.second.WorkoutCreatorMenu;
@@ -9,7 +10,7 @@ import whole.validators.InputValidators;
 
 import java.io.IOException;
 
-public class MainMenu  implements MenuInterface {
+public class FirstMenu implements MenuInterface {
     Saver saver = new Saver();
     InputValidators inputValidators = new InputValidators();
     EmptyListCheck emptyListCheck = new EmptyListCheck();
@@ -25,8 +26,7 @@ public class MainMenu  implements MenuInterface {
         int sw = 1;
         switch (inputValidators.inputLimiter(3,this)) {//inputLimiter
             case 1:{
-                ExerciseEditorMenu exerciseEditorMenu = new ExerciseEditorMenu();
-                exerciseEditorMenu.show();
+                MainMenu.setMenuInterface(new ExerciseEditorMenu());
                 break;
             }
             case 2:{
@@ -34,10 +34,10 @@ public class MainMenu  implements MenuInterface {
                     System.out.println("==================================");
                     System.out.println("List of exercises is empty!");
                     System.out.println("==================================");
-                    show();
+                    MainMenu.setMenuInterface(this);
                 }else {
                     WorkoutCreatorMenu workoutCreatorMenu = new WorkoutCreatorMenu();
-                    workoutCreatorMenu.show();
+                    MainMenu.setMenuInterface(workoutCreatorMenu);
                 }
                 break;
             }

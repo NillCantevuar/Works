@@ -1,5 +1,6 @@
 package whole.menus.third;
 
+import whole.menus.MainMenu;
 import whole.menus.MenuInterface;
 import whole.menus.second.WorkoutCreatorMenu;
 import whole.storage.currentWorkoutStorage.CurrentWorkoutHandler;
@@ -30,7 +31,7 @@ public class EditCurrentWorkuoutMenu implements MenuInterface {
                 System.out.println("==================================");
                 System.out.println("Workout pice deleted!");
                 System.out.println("==================================");
-                show();
+                MainMenu.setMenuInterface(this);
                 break;
             }
             case 2:{
@@ -38,7 +39,7 @@ public class EditCurrentWorkuoutMenu implements MenuInterface {
                 System.out.println("==================================");
                 System.out.println("Exercise added!");
                 System.out.println("==================================");
-                show();
+                MainMenu.setMenuInterface(this);
                 break;
             }
             case 3:{
@@ -46,7 +47,7 @@ public class EditCurrentWorkuoutMenu implements MenuInterface {
                 System.out.println("==================================");
                 System.out.println("Break added!");
                 System.out.println("==================================");
-                show();
+                MainMenu.setMenuInterface(this);
                 break;
             }
             case 4:{
@@ -54,9 +55,11 @@ public class EditCurrentWorkuoutMenu implements MenuInterface {
                 System.out.println("==================================");
                 System.out.println("Workout cleared");
                 System.out.println("==================================");
+                MainMenu.setMenuInterface(this);
+                break;
             }
             case 5:{
-                workoutCreatorMenu.show();
+                MainMenu.setMenuInterface(new WorkoutCreatorMenu());
                 break;
             }
 

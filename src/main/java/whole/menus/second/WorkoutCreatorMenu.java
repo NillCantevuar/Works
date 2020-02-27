@@ -1,10 +1,11 @@
 package whole.menus.second;
 
 import whole.fileOperators.Saver;
+import whole.menus.MainMenu;
 import whole.menus.third.EditCurrentWorkuoutMenu;
 import whole.menus.MenuInterface;
 import whole.menus.third.SortMenu;
-import whole.menus.first.MainMenu;
+import whole.menus.first.FirstMenu;
 import whole.storage.currentWorkoutStorage.CurrentWorkoutHandler;
 import whole.storage.currentWorkoutStorage.CurrentWorkoutStorrage;
 import whole.storage.exercise.Exercise;
@@ -19,7 +20,7 @@ public class WorkoutCreatorMenu  implements MenuInterface {
     @Override
     public void show() throws IOException {
         EmptyListCheck emptyListCheck = new EmptyListCheck();
-        MenuInterface menuInterface = new MainMenu();
+        MenuInterface menuInterface = new FirstMenu();
         InputValidators inputValidators = new InputValidators();
         System.out.println("==================================");
         System.out.println("Your courrent Workout: ");
@@ -40,7 +41,7 @@ public class WorkoutCreatorMenu  implements MenuInterface {
                 System.out.println("==================================");
                 System.out.println("Exercise added!");
                 System.out.println("==================================");
-                show();
+                MainMenu.setMenuInterface(this);
                 break;
             }
             case 2:{
@@ -48,7 +49,7 @@ public class WorkoutCreatorMenu  implements MenuInterface {
                 System.out.println("==================================");
                 System.out.println("Break added!");
                 System.out.println("==================================");
-                show();
+                MainMenu.setMenuInterface(this);
                 break;
             }
             case 3:{
@@ -56,12 +57,13 @@ public class WorkoutCreatorMenu  implements MenuInterface {
                     System.out.println("==================================");
                     System.out.println("Current workout is empty");
                     System.out.println("==================================");
+                    MainMenu.setMenuInterface(this);
                 }
                 else {
                     EditCurrentWorkuoutMenu editCurrentWorkuoutMenu = new EditCurrentWorkuoutMenu();
-                    editCurrentWorkuoutMenu.show();
+                    MainMenu.setMenuInterface(editCurrentWorkuoutMenu);
                 }
-                show();
+
                 break;
 
             }
@@ -79,12 +81,12 @@ public class WorkoutCreatorMenu  implements MenuInterface {
                 System.out.println("==================================");
                 System.out.println("Workout saved and cleared!");
                 System.out.println("==================================");
-                show();
+                MainMenu.setMenuInterface(this);
                 break;
             }
 
             case 5:{
-                menuInterface.show();
+                MainMenu.setMenuInterface(new FirstMenu());
                 break;
             }
         }
