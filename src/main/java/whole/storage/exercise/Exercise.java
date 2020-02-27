@@ -6,9 +6,17 @@ public class Exercise implements WorkoutPice {
 
    private String muscleCategory;
    private String muscleSubCategory;
-
    private String exerciseName;
    private String exerciseSubName;
+   private int repetitions;
+
+    public int getRepetitions() {
+        return repetitions;
+    }
+
+    public void setRepetitions(int repetitions) {
+        this.repetitions = repetitions;
+    }
 
     public Exercise(String muscleCategory, String muscleSubCategory, String exerciseName, String exerciseSubName) {
         this.muscleCategory = muscleCategory;
@@ -49,9 +57,11 @@ public class Exercise implements WorkoutPice {
         this.exerciseSubName = exerciseSubName;
     }
 
-    @Override
-    public String toString() {
-        return exerciseName+" "+exerciseSubName +" "+ muscleCategory +" "+ muscleCategory;
 
+    public String toStringShort() {
+        return exerciseName+" "+exerciseSubName +"  "+ muscleCategory +" "+ muscleSubCategory;
+    }
+    public String toString(){
+       return toStringShort()+" Reps: "+ repetitions;
     }
 }

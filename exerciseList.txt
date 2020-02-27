@@ -1,0 +1,1 @@
+[{"muscleCategory":"plecy","muscleSubCategory":"najszerszy","exerciseName":"podciaganie","exerciseSubName":"nachwytem","repetitions":0},{"muscleCategory":"rece","muscleSubCategory":"biceps","exerciseName":"podciaganie","exerciseSubName":"podchywtem waska","repetitions":0}]

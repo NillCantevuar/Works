@@ -4,11 +4,12 @@ import whole.storage.exercise.Exercise;
 import whole.storage.exercise.ExerciseStorage;
 import whole.validators.InputValidators;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NoSort {
-    public Exercise showAndGiveAll(){
+    public Exercise showAndGiveAll() throws IOException {
         InputValidators inputValidators = new InputValidators();
         //wyswietl cala liste
         showAll();

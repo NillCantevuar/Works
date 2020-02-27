@@ -6,17 +6,19 @@ import whole.sorters.SortByMusculePart;
 import whole.storage.exercise.Exercise;
 import whole.validators.InputValidators;
 
+import java.io.IOException;
 import java.util.List;
 
 public class SortMenu  implements MenuInterface {
 
     @Override
-    public void show() {
+    public void show() throws IOException {
         InputValidators inputValidators = new InputValidators();
+        System.out.println("==================================");
         System.out.println("Select Option and write in console");
-        System.out.println();
         System.out.println("1.Sort by name"); //showList
         System.out.println("2.Sort by muscle part"); //showList
+        System.out.println("==================================");
 
         switch (inputValidators.inputLimiter(2,this)){
             case 1:{
@@ -33,13 +35,14 @@ public class SortMenu  implements MenuInterface {
         }
     }
 
-    public Exercise showAndGive() {
+    public Exercise showAndGive() throws IOException {
 
         InputValidators inputValidators = new InputValidators();
+        System.out.println("==================================");
         System.out.println("Select Option and write in console");
-        System.out.println();
         System.out.println("1.Sort by name"); //showListAndGive
         System.out.println("2.Sort by muscle part"); //showListAndGive
+        System.out.println("==================================");
 
         switch (inputValidators.inputLimiter(2,this)){
             case 1:{
