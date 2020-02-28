@@ -43,8 +43,9 @@ public class Saver {
 
 
     public void saveWorkout(String fileName) throws IOException {
+        File desktop = new File(System.getProperty("user.home"), "Desktop");
         String savedWorkout = saveWorkoutToSting();
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(desktop+"/Workouts/"+fileName));
         bufferedWriter.write(savedWorkout);
         bufferedWriter.flush();
         bufferedWriter.close();

@@ -4,14 +4,15 @@ Reakcja na wcisniecie
 
 Test na wprowadzanie ze skanera
 
-Zmienic sciezke docelowa zapisu treningu <-
-
-glowna jest nullem
-
 Powydzielac kod do metod
 
 Co bedzie statyczne
 
 baza danych jako logi gotowwych trenicgow
 
+    zapis jsona z current workout a klucz to data
+
+    opcja w menu do wczytywania po dacie
+
+    wywietlanie dat i wczytywanie z db
 
